@@ -13,7 +13,7 @@ public class DesicionTree<T> implements BSTInterface<T> {
 
 	
 	
-	protected BSTNode<T> root;     
+	protected Node<T> root;     
     protected Comparator<T> comp;   
 
 	 

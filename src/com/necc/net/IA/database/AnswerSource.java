@@ -11,9 +11,6 @@ import java.sql.Statement;
 
 public class AnswerSource 
 {
-	
-
-
 		
 		private static Connection connection = null;  // variable is static to prevent multiple instaciations
 		private static boolean hasData = false;  // static prevent multiple instaciations
