@@ -1,8 +1,8 @@
 # 20-Question-game
 ## Application path for this project
-1.  Ask if question is correct
+1.  Ask if answer/question is correct
 
-2.  Get correct answer from user, if wrong
+2.  Get correct answer/question from user, if wrong
 
     a.  Confirm correct answer from on a dictionary
     
