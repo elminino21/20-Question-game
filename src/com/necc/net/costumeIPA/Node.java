@@ -19,6 +19,6 @@ public class Node<T> {
 	  public void setLeft(Node<T> link){no = link;}
 	  public void setRight(Node<T> link){yes = link;}
 	  
-	  public Node<T> getLeft(){return no;}
-	  public Node<T> getRight(){return yes;}
+	  public Node<T> getNo(){return no;}
+	  public Node<T> getYes(){return yes;}
 }
