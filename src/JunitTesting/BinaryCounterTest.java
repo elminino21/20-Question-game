@@ -10,11 +10,16 @@ public class BinaryCounterTest {
 
 	@Test
 	public void test() {
-		BinaryCounter test = new BinaryCounter(4);
+		BinaryCounter test = new BinaryCounter();
 		
-		int output = test.incraseCounter();
-		System.out.print(output);
-		assertEquals(5, output);
+		test.incraseCounter(false);
+		test.incraseCounter(false);
+		test.incraseCounter(true);
+		long output = test.incraseCounter(false);
+		
+		
+		System.out.println(output);
+		assertEquals(20, output);
 		
 	}
 

@@ -1,36 +1,62 @@
 package com.necc.net.costumeIPA;
-/**
- * 
- */
-public class BinaryCounter {
 
-	protected int number;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+/**
+ * classes na
+ */
+public final class BinaryCounter {
+
+	protected long number;
+	
+	protected LinkedList<String> desitions ;
 	
 	/**
 	 * 
 	 */
 	public BinaryCounter()
 	{
-		this.number = 0;
+		this.number = 1;
+		desitions = new LinkedList<String>();
+		desitions.add("1");
+		
 	}
 	
 	/**
 	 * 
 	 * @return
 	 */
-	public int incraseCounter()
+	public long incraseCounter(boolean answer)
 	{
-		int temp =  1 << number;
+		String myList ="";
+		this.isTrue(answer);
+		for(String a: desitions)
+		{
+			myList += a;
+		}
+			
+		number = Long.parseLong(  myList , 2);
 		
-		return temp;
+		return number;
 	}
+	
+	private void isTrue(boolean answer)
+	{
+		if(answer == true)
+			 desitions.add(1, "1");
+		else
+			desitions.add(1, "0");
+	}
+	
 	
 	public BinaryCounter(int input)
 	{
 		this.number = input;
 	}
 	
-	public int getNumber() {
+	public long getNumber() {
 		return number;
 	}
 
