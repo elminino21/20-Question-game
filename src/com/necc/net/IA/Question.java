@@ -1,38 +1,73 @@
 package com.necc.net.IA;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.necc.net.IA.database.QuestionSource;
+
 /**
- * class receive question and keeps track of it place on the tree
- * it will pull the answer from the tree when it reachest question number 20. by using the key field.
+ * adds questionst to the database
+ * 
  * 
  * @author elminino
+ *
  */
 public class Question {
 	
 	private String Question; 
 	private int NumQuestion;
 	private int key;
-	
+	private ResultSet result;
+	private QuestionSource questionTable;
 	/**
 	 * @param question
 	 * @param numQuestion
 	 * @param key
 	 */
-	public Question(String question, int numQuestion) {
+	public Question() {
 		super();
-		Question = question;
-		this.setNumQuestion( numQuestion );
+		Question = "";
+		this.key = -1;
+
+		this.questionTable = new QuestionSource();
+		result = questionTable.desisplayQuestions();
 		
 	}
+	
+	
 	/**
-	 * @return the question
+	 * @return the specified question
 	 */
-	public String getQuestion() {
-		return Question;
+	public String getQuestion(int key) {
+		
+		ResultSet temp = questionTable.getRow(key);
+		String myQuestion = "";
+		
+		try {
+			myQuestion = temp.getString("QUESTION");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		NumQuestion++;
+		return myQuestion;
 	}
 	/**
 	 * @param question the question to set
 	 */
-	public void setQuestion(String question) {
-		Question = question;
+	public void addQuestion(String question, int key, boolean generade) {
+		
+		int randonlyGenerated = (generade == true) ? 1 : 0;
+		
+		try {
+			questionTable.addQuestion(key, question, randonlyGenerated);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	/**
 	 * @return the numQuestion
@@ -40,18 +75,8 @@ public class Question {
 	public int getNumQuestion() {
 		return NumQuestion;
 	}
-	/**
-	 * @param numQuestion the numQuestion to set
-	 */
-	private void setNumQuestion(int numQuestion) {
-		if(numQuestion == 20)
-		{
-			/*
-			 * TODO:  adds insert guess on data base.
-			 */
-		}
-		NumQuestion = numQuestion;
-	}
+	
+	
 	/**
 	 * @return the key
 	 */

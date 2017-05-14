@@ -1,4 +1,5 @@
 package com.necc.net.costumeIPA;
+import java.util.BitSet;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Spliterator;
@@ -8,26 +9,32 @@ import java.util.function.Consumer;
 import Support.BSTInterface;
 import Support.BSTNode;
 
-
+/**
+ * after multiple implementation for performance and dorability the tree will no be serialize, 
+ * but read from  two data bases, questions(will get the question base on it binary position) and answer answer will do the same, 
+ * but based on its final value on digital base.
+ * @author elminino
+ *
+ int n = 12345;
+BitSet bs = BitSet.valueOf(new long[]{n});
+long l = bs.toLongArray()[0];
+ * @param <T>
+ */
 public class DesicionTree<T> implements BSTInterface<T> {
 
 	
 	
-	protected BSTNode<T> root;     
-    protected Comparator<T> comp;   
+	protected Node<T> root;     
+    protected Comparator<T> comp; 
+    private BitSet bitTrail; /* tracks the answer */ 
 
 	 
 	public  DesicionTree()
 	 {
 		 root = null;
+		 this.bitTrail = new BitSet(20);
 		 
-		 comp = new Comparator<T>()
-				    {
-				       public int compare(T element1, T element2)
-				       {
-				         return ((Comparable)element1).compareTo(element2);
-				       }
-				    };
+		
 	 }
 	
 	public boolean add(T element) {
@@ -49,7 +56,7 @@ public class DesicionTree<T> implements BSTInterface<T> {
 	{
 		if(root == null)return null;
 		
-		if( root.data == taget) return root;
+		if( root.getInfo() == taget) return root;
 	//	else if(root.data <= taget)
 		
 		return null;
@@ -95,9 +102,9 @@ public class DesicionTree<T> implements BSTInterface<T> {
 		       return null;
 		    else
 		    {
-		       BSTNode<T> node = root;
-		       while (node.getLeft() != null)
-		         node = node.getLeft();
+		       Node<T> node = root;
+		       while (node.getNo() != null)
+		         node = node.getNo();
 		       return node.getInfo();
 		    }
 	}
@@ -107,9 +114,9 @@ public class DesicionTree<T> implements BSTInterface<T> {
 		       return null;
 		    else
 		    {
-		       BSTNode<T> node = root;
-		       while (node.getRight() != null)
-		         node = node.getRight();
+		       Node<T> node = root;
+		       while (node.getYes() != null)
+		         node = node.getYes();
 		       return node.getInfo();
 		    }
 	}
@@ -117,6 +124,10 @@ public class DesicionTree<T> implements BSTInterface<T> {
 	public Iterator<T> getIterator(Support.BSTInterface.Traversal orderType) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	private long getBitSetvalue() {
+		return bitTrail.toLongArray()[0];
 	}
 
 }
