@@ -26,15 +26,14 @@ public class QuestionSource
 		 * @throws ClassNotFoundException
 		 * @throws SQLException
 		 */
-		public ResultSet desisplayQuestions() 
+		public ResultSet desisplayAll() 
 		{	
 			 ResultSet res = null;
 			try {
-				this.getConnection();
 			if( connection == null)
 			{
 				
-				
+				this.getConnection();
 				
 			}	
 			Statement state = connection.createStatement();

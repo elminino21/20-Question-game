@@ -5,9 +5,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * helps on the determining the current node/rowid to read
+ * helps to the determine the current node/rowid to read
+ * 
  */
-public final class BinaryCounter {
+public final class BinaryCounter implements Counter{
 
 	protected long number;
 	protected LinkedList<String> desitions ;

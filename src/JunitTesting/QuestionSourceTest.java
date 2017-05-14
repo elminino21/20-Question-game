@@ -15,7 +15,7 @@ public class QuestionSourceTest {
 	public void test() {
 		
 		QuestionSource question = new QuestionSource();
-		ResultSet result = question.desisplayQuestions();
+		ResultSet result = question.desisplayAll();
 		
 		try {
 			assertEquals(true, result.next());

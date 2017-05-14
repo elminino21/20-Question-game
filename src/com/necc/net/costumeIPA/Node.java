@@ -1,7 +1,9 @@
 package com.necc.net.costumeIPA;
 
 
-
+/** 
+ * special tree node
+ */
 public class Node<T> {
 	
 	private T data;                // The node info

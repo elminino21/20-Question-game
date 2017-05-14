@@ -18,6 +18,7 @@ import Support.BSTNode;
  int n = 12345;
 BitSet bs = BitSet.valueOf(new long[]{n});
 long l = bs.toLongArray()[0];
+@deprecated decited on using the regular one no need to use this one
  * @param <T>
  */
 public class DesicionTree<T> implements BSTInterface<T> {

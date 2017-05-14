@@ -12,7 +12,7 @@ public class Answer {
 	public Answer()
 	{
 		AnswerSource question = new AnswerSource();
-		result = question.desisplayQuestions();	
+		result = question.desisplayAll();	
 	}
 	
 	

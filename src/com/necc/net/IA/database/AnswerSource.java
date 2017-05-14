@@ -8,7 +8,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+/**
+ * handles the input and output of questions
+ */
 public class AnswerSource 
 {
 		
@@ -21,15 +23,16 @@ public class AnswerSource
 		 * @throws ClassNotFoundException
 		 * @throws SQLException
 		 */
-		public ResultSet desisplayQuestions() 
+		public ResultSet desisplayAll() 
 		{	
 			 ResultSet res = null;
 			try {
-				this.getConnection();
+				
+				
 			if( connection == null)
 			{
 				
-				
+				this.getConnection();
 				
 			}	
 			Statement state = connection.createStatement();
@@ -37,7 +40,7 @@ public class AnswerSource
 			 
 			} catch (Exception e ) {
 				System.out.println("failed to get connection method gameAnswer");
-				e.printStackTrace();
+				e.printStackTrace();	
 			}
 			 return res;
 		}

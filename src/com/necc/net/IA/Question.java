@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import com.necc.net.IA.database.QuestionSource;
 
 /**
- * adds questionst to the database
+ * adds questions to the database
  * 
  * 
  * @author elminino
@@ -30,7 +30,7 @@ public class Question {
 		this.key = -1;
 
 		this.questionTable = new QuestionSource();
-		result = questionTable.desisplayQuestions();
+		result = questionTable.desisplayAll();
 		
 	}
 	
@@ -38,7 +38,7 @@ public class Question {
 	/**
 	 * @return the specified question
 	 */
-	public String getQuestion(int key) {
+	public String getQuestion(long key) {
 		
 		ResultSet temp = questionTable.getRow(key);
 		String myQuestion = "";
