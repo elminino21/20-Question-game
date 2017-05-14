@@ -12,15 +12,13 @@ import com.necc.net.IA.database.QuestionSource;
  * @author elminino
  *
  */
-
-
 public class Question {
 	
 	private String Question; 
 	private int NumQuestion;
 	private int key;
 	private ResultSet result;
-	private QuestionSource questionAdder;
+	private QuestionSource questionTable;
 	/**
 	 * @param question
 	 * @param numQuestion
@@ -31,20 +29,28 @@ public class Question {
 		Question = "";
 		this.key = -1;
 
-		this.questionAdder = new QuestionSource();
-		result = questionAdder.desisplayQuestions();
+		this.questionTable = new QuestionSource();
+		result = questionTable.desisplayQuestions();
 		
 	}
 	
 	
 	/**
-	 * @return the question
+	 * @return the specified question
 	 */
 	public String getQuestion(int key) {
 		
+		ResultSet temp = questionTable.getRow(key);
+		String myQuestion = "";
 		
-		
-		return Question;
+		try {
+			myQuestion = temp.getString("QUESTION");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		NumQuestion++;
+		return myQuestion;
 	}
 	/**
 	 * @param question the question to set
@@ -54,7 +60,7 @@ public class Question {
 		int randonlyGenerated = (generade == true) ? 1 : 0;
 		
 		try {
-			questionAdder.addQuestion(key, question, randonlyGenerated);
+			questionTable.addQuestion(key, question, randonlyGenerated);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -5,16 +5,26 @@ import com.necc.net.costumeIPA.BinaryCounter;
 public class GameIngine {
 	
 	private Answer answer;
-	private Question Question;
+	private Question question;
 	private BinaryCounter binarycounter;
 	
 	public GameIngine(Answer answer, Question question)
 	{
 		this.answer = answer;
-		this.Question = question;
+		this.question = question;
 		this.binarycounter = new BinaryCounter();
 	}
 	
+	
+	public void Star()
+	{
+		question.getQuestion(1);
+	}
+	
+	public void getAnswer(char input)
+	{
+		
+	}
 	
 	
 	

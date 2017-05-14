@@ -50,7 +50,7 @@ public class QuestionSource
 		/**
 		 * returns the specified row
 		 */
-		public ResultSet setRow(long rowid)
+		public ResultSet getRow(long rowid)
 		{
 			ResultSet res = null;
 			try {
@@ -135,6 +135,14 @@ public class QuestionSource
 		 }
 		
 		
+		 /**
+		  * adds a new queston on the specified row
+		  * @param rowid
+		  * @param question
+		  * @param randonlyGenerated
+		  * @throws SQLException
+		  * @throws ClassNotFoundException
+		  */
 		 public void addQuestion(long rowid, String question, int randonlyGenerated ) throws SQLException, ClassNotFoundException
 		 {
 			 if( connection == null)
