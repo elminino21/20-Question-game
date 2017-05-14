@@ -16,8 +16,7 @@ public class BinaryCounterTest {
 		test.incraseCounter(false);
 		test.incraseCounter(true);
 		long output = test.incraseCounter(false);
-		
-		
+			
 		System.out.println(output);
 		assertEquals(20, output);
 		
