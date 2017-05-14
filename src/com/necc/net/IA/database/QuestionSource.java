@@ -47,6 +47,31 @@ public class QuestionSource
 			 return res;
 		}
 		
+		/**
+		 * returns the specified row
+		 */
+		public ResultSet setRow(long rowid)
+		{
+			ResultSet res = null;
+			try {
+				this.getConnection();
+			if( connection == null)
+			{
+				
+				
+				
+			}	
+			Statement state = connection.createStatement();
+			  res = state.executeQuery("SELECT gameQuestion FROM gameQuestion WHERE rowid ="+ rowid);
+			  
+			 
+			} catch (Exception e ) {
+				System.out.println("failed to get connection method gameQuestion");
+				e.printStackTrace();
+			}
+			 return res;
+		}
+		
 		
 		
 		/**

@@ -5,14 +5,12 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * classes na
+ * helps on the determining the current node/rowid to read
  */
 public final class BinaryCounter {
 
 	protected long number;
-	
 	protected LinkedList<String> desitions ;
-	
 	/**
 	 * 
 	 */
@@ -51,7 +49,7 @@ public final class BinaryCounter {
 	}
 	
 	
-	public BinaryCounter(int input)
+	private BinaryCounter(int input)
 	{
 		this.number = input;
 	}
@@ -60,7 +58,7 @@ public final class BinaryCounter {
 		return number;
 	}
 
-	public void setNumber(int number) {
+	private void setNumber(int number) {
 		this.number = number;
 	}
 }

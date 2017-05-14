@@ -99,7 +99,7 @@ public class AnswerSource
 			  
 			  Statement statement = connection.createStatement();
 		      String sql = "INSERT INTO gameAnswer ( rowid, guessCorrectly , ANSWER ) " +
-		                   "VALUES ( 1, 20, 'Is is alive?' );"; 
+		                   "VALUES ( 1, 20, 'Something' );"; 
 		      statement.executeUpdate(sql);
 		     
 		 }
